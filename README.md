@@ -34,6 +34,26 @@ This project implements an SDN-managed pipeline where:
 
 
 
+📦 Prerequisites & Installation
+
+Before executing the project, ensure that you have all necessary dependencies, libraries, and tools installed on your system. This environment typically requires:
+
+- **Environment:** Ubuntu (strongly recommended for native P4 development, though VMs or Docker containers can also be used).
+- **P4C:** P4 Compiler.
+- **BMv2:** Behavioral Model version 2 (`simple_switch_grpc`).
+- **Mininet:** Network emulator.
+- **Python 3:** With required libraries (including Scapy and P4Runtime libraries).
+
+Make sure your P4 development environment and toolchain are fully set up according to the official [P4.org tutorial instructions](https://github.com/p4lang/tutorials) before proceeding.
+
+
+
+
+
+
+
+
+
 
 Architecture Flow During Execution
 [Host h1] 
@@ -49,3 +69,27 @@ Architecture Flow During Execution
      │
      ▼
  [Host h2]
+
+
+
+
+Steps to Execute......
+
+1- Initialize the Environment: Run the make command in your terminal to compile the P4 programs, spin up the Mininet topology environment, and set up the network.
+Terminal1:
+make
+
+2- Start the SDN Controller: Open a separate terminal window and run the controller script to configure table entries via P4Runtime:
+Terminal2:
+python3 controller.py
+
+3- Open Host Terminals in Mininet: Inside your Mininet CLI prompt, spawn xterm windows for host h1 and host h2:
+mininet> xterm h1 h2
+
+
+4- Send and Receive Traffic:
+In the terminal window for h1, start the packet generator:
+sudo python3 send_packet.py
+
+In the terminal window for h2, start the packet receiver / ACK responder:
+sudo python3 receive_packet.py
