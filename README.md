@@ -29,7 +29,9 @@ This project implements an SDN-managed pipeline where:
 ├── receive_packet.py        # Scapy packet receiver / ACK responder
 ├── topology.json            # Mininet / topology configuration file
 ├── Makefile                 # Build rules for compilation using p4c
-└── logs/                    # Directory containing switch runtime logs (e.g., e1.log, s2.log, s3.log)
+├── docs/                    # Documentation directory
+│   └── Thesis_Report.pdf    # Complete written thesis report
+└── logs/                    # Directory containing switch runtime logs (e.g., e1.log, s2.log, s3.log, ...)
 
 
 
