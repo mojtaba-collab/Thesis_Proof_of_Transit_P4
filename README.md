@@ -1,5 +1,4 @@
 
-
 # PoT-PolKA SDN Architecture
 
 An implementation of Proof of Transit (PoT) combined with PolKA (Polynomial Key-based Architecture) Source Routing using P4 and P4Runtime. This repository demonstrates secure, verifiable path routing and telemetry on programmable data planes (BMv2).
@@ -7,7 +6,6 @@ An implementation of Proof of Transit (PoT) combined with PolKA (Polynomial Key-
 ## 📋 Table of Contents
 - [Overview](#-overview)
 - [Repository Structure](#-repository-structure)
-- [Prerequisites & Installation](#-prerequisites--installation)
 - [Running the Experiment](#-running-the-experiment)
 - [Components & Scripts](#-components--scripts)
 
@@ -32,6 +30,9 @@ This project implements an SDN-managed pipeline where:
 ├── topology.json            # Mininet / topology configuration file
 ├── Makefile                 # Build rules for compilation using p4c
 └── logs/                    # Directory containing switch runtime logs (e.g., e1.log, s2.log, s3.log)
+
+
+
 
 
 Architecture Flow During Execution
