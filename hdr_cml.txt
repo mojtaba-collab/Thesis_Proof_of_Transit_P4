@@ -1,0 +1,36 @@
+previous_hdr_cml: 0
+y: 16
+x: 1
+poly2: 17
+lpc: 8
+mersenne: 31
+mersenne_b: 5
+New CML value: 25
+
+previous_hdr_cml: 25
+y: 15
+x: 3
+poly2: 22
+lpc: 23
+mersenne: 31
+mersenne_b: 5
+New CML value: 30
+
+previous_hdr_cml: 30
+y: 7
+x: 5
+poly2: 14
+lpc: 11
+mersenne: 31
+mersenne_b: 5
+New CML value: 37
+
+previous_hdr_cml: 37
+y: 23
+x: 7
+poly2: 10
+lpc: 21
+mersenne: 31
+mersenne_b: 5
+New CML value: 60
+

@@ -1,0 +1,6 @@
+MyIngress.node_config: hdr.potPolka.routeId=10979360238159862843 -> MyIngress.set_nodeid nodeid=65581 
+MyIngress.node_config: hdr.potPolka.routeId=10482717147535548581 -> MyIngress.set_nodeid nodeid=65581 
+MyIngress.pot_param: meta.pot_k=8 -> MyIngress.initialize_param x=3 y=3 lpc=23 mersenne=31 mersenne_b=5 poly2=27 
+MyIngress.pot_param: meta.pot_k=10 -> MyIngress.initialize_param x=5 y=10 lpc=11 mersenne=31 mersenne_b=5 poly2=19 
+MyIngress.port_map: meta.port=40 -> MyIngress.set_physical_port physical_port=2 
+MyIngress.port_map: meta.port=214 -> MyIngress.set_physical_port physical_port=1 

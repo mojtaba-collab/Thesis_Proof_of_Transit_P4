@@ -1,0 +1,4 @@
+MyIngress.ipv4_lpm: hdr.ipv4.dstAddr=10.0.2.2/32 -> MyIngress.ipv4_forward dstAddr=08:00:00:00:02:22 port=1 
+MyIngress.ipv4_lpm: hdr.ipv4.dstAddr=10.0.1.1/32 -> MyIngress.ipv4_forward dstAddr=08:00:00:00:01:00 port=2 
+MyIngress.egress_verify: hdr.potPolka.routeId=10979360238159862843 -> MyIngress.verify_pot sr=1 mersenne=31 mersenne_b=5 
+MyIngress.process_tunnel_encap.tunnel_encap_process_sr: hdr.ipv4.dstAddr=10.0.1.1/32 -> MyIngress.process_tunnel_encap.add_sourcerouting_header port=2 dmac=08:00:00:00:01:00 routeIdPacket=10482717147535548581 rnd=50 cml=0 secret=0 

@@ -1,0 +1,240 @@
+
+[2026-10-10 08:51:44.881] /p4.v1.P4Runtime/SetForwardingPipelineConfig
+---
+Message too long (117357 bytes)! Skipping log...
+---
+
+[2026-10-10 08:51:44.929] /p4.v1.P4Runtime/Write
+---
+device_id: 4
+election_id {
+  low: 1
+}
+updates {
+  type: INSERT
+  entity {
+    table_entry {
+      table_id: 39426598
+      match {
+        field_id: 1
+        exact {
+          value: "\000\000\000\000\000\000\000\000\000\000\000\000\230^\205\367(\221\034;"
+        }
+      }
+      action {
+        action {
+          action_id: 17012265
+          params {
+            param_id: 1
+            value: "\000\001\0009"
+          }
+        }
+      }
+    }
+  }
+}
+---
+
+[2026-10-10 08:51:44.930] /p4.v1.P4Runtime/Write
+---
+device_id: 4
+election_id {
+  low: 1
+}
+updates {
+  type: INSERT
+  entity {
+    table_entry {
+      table_id: 46038719
+      match {
+        field_id: 1
+        exact {
+          value: "\001("
+        }
+      }
+      action {
+        action {
+          action_id: 23898737
+          params {
+            param_id: 1
+            value: "\000\002"
+          }
+        }
+      }
+    }
+  }
+}
+---
+
+[2026-10-10 08:51:44.931] /p4.v1.P4Runtime/Write
+---
+device_id: 4
+election_id {
+  low: 1
+}
+updates {
+  type: INSERT
+  entity {
+    table_entry {
+      table_id: 38886365
+      match {
+        field_id: 1
+        exact {
+          value: "\017"
+        }
+      }
+      action {
+        action {
+          action_id: 29996710
+          params {
+            param_id: 1
+            value: "\000\005"
+          }
+          params {
+            param_id: 2
+            value: "\000\n"
+          }
+          params {
+            param_id: 3
+            value: "\000\013"
+          }
+          params {
+            param_id: 4
+            value: "\000\037"
+          }
+          params {
+            param_id: 5
+            value: "\005"
+          }
+          params {
+            param_id: 6
+            value: "\000\023"
+          }
+        }
+      }
+    }
+  }
+}
+---
+
+[2026-10-10 08:51:44.937] /p4.v1.P4Runtime/Write
+---
+device_id: 4
+election_id {
+  low: 1
+}
+updates {
+  type: INSERT
+  entity {
+    table_entry {
+      table_id: 39426598
+      match {
+        field_id: 1
+        exact {
+          value: "\000\000\000\000\000\000\000\000\000\000\000\000\221z\027\264\263\300\240\245"
+        }
+      }
+      action {
+        action {
+          action_id: 17012265
+          params {
+            param_id: 1
+            value: "\000\001\0009"
+          }
+        }
+      }
+    }
+  }
+}
+---
+
+[2026-10-10 08:51:44.938] /p4.v1.P4Runtime/Write
+---
+device_id: 4
+election_id {
+  low: 1
+}
+updates {
+  type: INSERT
+  entity {
+    table_entry {
+      table_id: 46038719
+      match {
+        field_id: 1
+        exact {
+          value: "\001\326"
+        }
+      }
+      action {
+        action {
+          action_id: 23898737
+          params {
+            param_id: 1
+            value: "\000\001"
+          }
+        }
+      }
+    }
+  }
+}
+---
+
+[2026-10-10 08:51:44.939] /p4.v1.P4Runtime/Write
+---
+device_id: 4
+election_id {
+  low: 1
+}
+updates {
+  type: INSERT
+  entity {
+    table_entry {
+      table_id: 38886365
+      match {
+        field_id: 1
+        exact {
+          value: "\r"
+        }
+      }
+      action {
+        action {
+          action_id: 29996710
+          params {
+            param_id: 1
+            value: "\000\003"
+          }
+          params {
+            param_id: 2
+            value: "\000\003"
+          }
+          params {
+            param_id: 3
+            value: "\000\027"
+          }
+          params {
+            param_id: 4
+            value: "\000\037"
+          }
+          params {
+            param_id: 5
+            value: "\005"
+          }
+          params {
+            param_id: 6
+            value: "\000\033"
+          }
+        }
+      }
+    }
+  }
+}
+---
+
+[2026-10-10 08:51:44.951] /p4.v1.P4Runtime/Read
+---
+device_id: 4
+entities {
+  table_entry {
+  }
+}
+---

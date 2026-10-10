@@ -1,0 +1,175 @@
+# proto-file: p4/config/v1/p4info.proto
+# proto-message: p4.config.v1.P4Info
+
+pkg_info {
+  arch: "v1model"
+}
+tables {
+  preamble {
+    id: 39426598
+    name: "MyIngress.node_config"
+    alias: "node_config"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.potPolka.routeId"
+    bitwidth: 160
+    match_type: EXACT
+  }
+  action_refs {
+    id: 17012265
+  }
+  initial_default_action {
+    action_id: 17012265
+    arguments {
+      param_id: 1
+      value: "\000\000\000\000"
+    }
+  }
+  size: 2
+}
+tables {
+  preamble {
+    id: 38886365
+    name: "MyIngress.pot_param"
+    alias: "pot_param"
+  }
+  match_fields {
+    id: 1
+    name: "meta.pot_k"
+    bitwidth: 4
+    match_type: EXACT
+  }
+  action_refs {
+    id: 29996710
+  }
+  action_refs {
+    id: 25652968
+  }
+  initial_default_action {
+    action_id: 25652968
+  }
+  size: 128
+}
+tables {
+  preamble {
+    id: 46038719
+    name: "MyIngress.port_map"
+    alias: "port_map"
+  }
+  match_fields {
+    id: 1
+    name: "meta.port"
+    bitwidth: 9
+    match_type: EXACT
+  }
+  action_refs {
+    id: 23898737
+  }
+  action_refs {
+    id: 21257015
+  }
+  initial_default_action {
+    action_id: 21257015
+  }
+  size: 256
+}
+actions {
+  preamble {
+    id: 21257015
+    name: "NoAction"
+    alias: "NoAction"
+    annotations: "@noWarn(\"unused\")"
+  }
+}
+actions {
+  preamble {
+    id: 25652968
+    name: "MyIngress.drop"
+    alias: "drop"
+  }
+}
+actions {
+  preamble {
+    id: 17012265
+    name: "MyIngress.set_nodeid"
+    alias: "set_nodeid"
+  }
+  params {
+    id: 1
+    name: "nodeid"
+    bitwidth: 32
+  }
+}
+actions {
+  preamble {
+    id: 26904258
+    name: "MyIngress.srcRoute_nhop"
+    alias: "srcRoute_nhop"
+  }
+}
+actions {
+  preamble {
+    id: 29996710
+    name: "MyIngress.initialize_param"
+    alias: "initialize_param"
+  }
+  params {
+    id: 1
+    name: "x"
+    bitwidth: 16
+  }
+  params {
+    id: 2
+    name: "y"
+    bitwidth: 16
+  }
+  params {
+    id: 3
+    name: "lpc"
+    bitwidth: 16
+  }
+  params {
+    id: 4
+    name: "mersenne"
+    bitwidth: 16
+  }
+  params {
+    id: 5
+    name: "mersenne_b"
+    bitwidth: 4
+  }
+  params {
+    id: 6
+    name: "poly2"
+    bitwidth: 16
+  }
+}
+actions {
+  preamble {
+    id: 23898737
+    name: "MyIngress.set_physical_port"
+    alias: "set_physical_port"
+  }
+  params {
+    id: 1
+    name: "physical_port"
+    bitwidth: 9
+  }
+}
+actions {
+  preamble {
+    id: 18056309
+    name: "MyIngress.cal_secret"
+    alias: "cal_secret"
+  }
+}
+actions {
+  preamble {
+    id: 26249836
+    name: "MyIngress.calc_cml"
+    alias: "calc_cml"
+  }
+}
+type_info {
+}

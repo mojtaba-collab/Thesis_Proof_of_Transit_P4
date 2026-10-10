@@ -1,0 +1,5383 @@
+{
+  "header_types" : [
+    {
+      "name" : "scalars_0",
+      "id" : 0,
+      "fields" : [
+        ["tmp", 16, false],
+        ["tmp_0", 32, false],
+        ["tmp_1", 32, false],
+        ["tmp_2", 32, false],
+        ["tmp_3", 32, false],
+        ["tmp_4", 32, false],
+        ["tmp_5", 32, false],
+        ["tmp_6", 32, false],
+        ["tmp_7", 32, false],
+        ["tmp_8", 16, false],
+        ["tmp_9", 16, false],
+        ["tmp_10", 32, false],
+        ["tmp_11", 9, false],
+        ["tmp_12", 16, false],
+        ["tmp_13", 16, false],
+        ["tmp_14", 48, false],
+        ["tmp_15", 160, false],
+        ["tmp_16", 16, false],
+        ["tmp_17", 32, false],
+        ["tmp_18", 32, false],
+        ["tmp_19", 32, false],
+        ["tmp_20", 32, false],
+        ["tmp_21", 160, false],
+        ["tmp_22", 16, false],
+        ["tmp_23", 16, false],
+        ["tmp_24", 16, false],
+        ["tmp_25", 16, false],
+        ["tmp_26", 32, false],
+        ["tmp_27", 32, false],
+        ["tmp_28", 32, false],
+        ["tmp_29", 32, false],
+        ["tmp_30", 32, false],
+        ["tmp_31", 32, false],
+        ["tmp_32", 32, false],
+        ["tmp_33", 32, false],
+        ["tmp_34", 16, false],
+        ["tmp_35", 16, false],
+        ["tmp_36", 16, false],
+        ["tmp_37", 16, false],
+        ["metadata.routeId", 160, false],
+        ["metadata.etherType", 16, false],
+        ["metadata.apply_sr", 1, false],
+        ["metadata.port", 9, false],
+        ["metadata.poly1", 16, false],
+        ["metadata.secret", 16, false],
+        ["metadata.mersenne", 16, false],
+        ["metadata.mersenne_b", 4, false],
+        ["metadata.POT_flag", 1, false],
+        ["metadata.verification", 16, false],
+        ["metadata.rnd", 16, false],
+        ["metadata.cml", 16, false],
+        ["metadata.prev_rnd", 16, false],
+        ["metadata.prev_cml", 16, false],
+        ["metadata.ipAddr", 32, false],
+        ["metadata.egress_port", 9, false],
+        ["_padding_0", 7, false]
+      ]
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "fields" : [
+        ["ingress_port", 9, false],
+        ["egress_spec", 9, false],
+        ["egress_port", 9, false],
+        ["instance_type", 32, false],
+        ["packet_length", 32, false],
+        ["enq_timestamp", 32, false],
+        ["enq_qdepth", 19, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 19, false],
+        ["ingress_global_timestamp", 48, false],
+        ["egress_global_timestamp", 48, false],
+        ["mcast_grp", 16, false],
+        ["egress_rid", 16, false],
+        ["checksum_error", 1, false],
+        ["parser_error", 32, false],
+        ["priority", 3, false],
+        ["_padding", 3, false]
+      ]
+    },
+    {
+      "name" : "ethernet_t",
+      "id" : 2,
+      "fields" : [
+        ["dstAddr", 48, false],
+        ["srcAddr", 48, false],
+        ["etherType", 16, false]
+      ]
+    },
+    {
+      "name" : "potPolka_t",
+      "id" : 3,
+      "fields" : [
+        ["routeId", 160, false],
+        ["rnd", 16, false],
+        ["cml", 16, false],
+        ["secret", 16, false],
+        ["saved_dst_ip", 32, false],
+        ["saved_src_ip", 32, false],
+        ["saved_src_port", 16, false],
+        ["saved_dst_port", 16, false]
+      ]
+    },
+    {
+      "name" : "ipv4_t",
+      "id" : 4,
+      "fields" : [
+        ["version", 4, false],
+        ["ihl", 4, false],
+        ["diffserv", 8, false],
+        ["totalLen", 16, false],
+        ["identification", 16, false],
+        ["flags", 3, false],
+        ["fragOffset", 13, false],
+        ["ttl", 8, false],
+        ["protocol", 8, false],
+        ["hdrChecksum", 16, false],
+        ["srcAddr", 32, false],
+        ["dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "ipv6_t",
+      "id" : 5,
+      "fields" : [
+        ["version", 4, false],
+        ["traffic_class", 8, false],
+        ["flow_label", 20, false],
+        ["payload_len", 16, false],
+        ["next_hdr", 8, false],
+        ["hop_limit", 8, false],
+        ["src_addr", 128, false],
+        ["dst_addr", 128, false]
+      ]
+    },
+    {
+      "name" : "udp_t",
+      "id" : 6,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["length", 16, false],
+        ["checksum", 16, false]
+      ]
+    }
+  ],
+  "headers" : [
+    {
+      "name" : "scalars",
+      "id" : 0,
+      "header_type" : "scalars_0",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "header_type" : "standard_metadata",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ethernet",
+      "id" : 2,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "potPolka",
+      "id" : 3,
+      "header_type" : "potPolka_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4",
+      "id" : 4,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv6",
+      "id" : 5,
+      "header_type" : "ipv6_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "udp",
+      "id" : 6,
+      "header_type" : "udp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    }
+  ],
+  "header_stacks" : [],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
+  "field_lists" : [],
+  "errors" : [
+    ["NoError", 0],
+    ["PacketTooShort", 1],
+    ["NoMatch", 2],
+    ["StackOutOfBounds", 3],
+    ["HeaderTooShort", 4],
+    ["ParserTimeout", 5],
+    ["ParserInvalidArgument", 6]
+  ],
+  "enums" : [],
+  "parsers" : [
+    {
+      "name" : "parser",
+      "id" : 0,
+      "init_state" : "start",
+      "parse_states" : [
+        {
+          "name" : "start",
+          "id" : 0,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1234",
+              "mask" : null,
+              "next_state" : "parse_srcRouting"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x86dd",
+              "mask" : null,
+              "next_state" : "parse_ipv6"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_srcRouting",
+          "id" : 1,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "potPolka"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_ipv4",
+          "id" : 2,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x11",
+              "mask" : null,
+              "next_state" : "parse_udp"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_udp",
+          "id" : 3,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "udp"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_ipv6",
+          "id" : 4,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv6"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        }
+      ]
+    }
+  ],
+  "parse_vsets" : [],
+  "deparsers" : [
+    {
+      "name" : "deparser",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "pot-polka-edge.p4",
+        "line" : 561,
+        "column" : 8,
+        "source_fragment" : "MyDeparser"
+      },
+      "order" : ["ethernet", "potPolka", "ipv4", "ipv6", "udp"],
+      "primitives" : []
+    }
+  ],
+  "meter_arrays" : [],
+  "counter_arrays" : [],
+  "register_arrays" : [],
+  "calculations" : [
+    {
+      "name" : "calc",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "pot-polka-edge.p4",
+        "line" : 524,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_0",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "pot-polka-edge.p4",
+        "line" : 542,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        },
+        {
+          "type" : "hexstr",
+          "value" : "0x00",
+          "bitwidth" : 8
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "length"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "srcPort"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "dstPort"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "length"]
+        }
+      ]
+    }
+  ],
+  "learn_lists" : [],
+  "actions" : [
+    {
+      "name" : "NoAction",
+      "id" : 0,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 1,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 310,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 2,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 310,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 3,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 310,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 4,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 310,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 5,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 310,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.ipv4_forward",
+      "id" : 6,
+      "runtime_data" : [
+        {
+          "name" : "dstAddr",
+          "bitwidth" : 48
+        },
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 317,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_spec = port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 318,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.srcAddr = hdr.ethernet.dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 319,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.dstAddr = dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ttl"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "ttl"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 320,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl - 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.verify_pot",
+      "id" : 7,
+      "runtime_data" : [
+        {
+          "name" : "sr",
+          "bitwidth" : 1
+        },
+        {
+          "name" : "mersenne",
+          "bitwidth" : 16
+        },
+        {
+          "name" : "mersenne_b",
+          "bitwidth" : 4
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.POT_flag"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 340,
+            "column" : 8,
+            "source_fragment" : "meta.POT_flag = sr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.mersenne"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 341,
+            "column" : 8,
+            "source_fragment" : "meta.mersenne = mersenne"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.mersenne_b"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 2
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 342,
+            "column" : 8,
+            "source_fragment" : "meta.mersenne_b = mersenne_b"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.process_tunnel_encap.drop",
+      "id" : 8,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 190,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.process_tunnel_encap.add_sourcerouting_header",
+      "id" : 9,
+      "runtime_data" : [
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        },
+        {
+          "name" : "dmac",
+          "bitwidth" : 48
+        },
+        {
+          "name" : "routeIdPacket",
+          "bitwidth" : 160
+        },
+        {
+          "name" : "rnd",
+          "bitwidth" : 16
+        },
+        {
+          "name" : "cml",
+          "bitwidth" : 16
+        },
+        {
+          "name" : "secret",
+          "bitwidth" : 16
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 198,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_spec = port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 200,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.dstAddr = dmac"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "potPolka"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 203,
+            "column" : 8,
+            "source_fragment" : "hdr.potPolka.setValid()"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Ingress: POT-POLKA is valid"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 204,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Ingress: POT-POLKA is valid\\\");"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["potPolka", "routeId"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 2
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 205,
+            "column" : 8,
+            "source_fragment" : "hdr.potPolka.routeId = routeIdPacket"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["potPolka", "rnd"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 3
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 206,
+            "column" : 8,
+            "source_fragment" : "hdr.potPolka.rnd = rnd"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["potPolka", "cml"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 4
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 207,
+            "column" : 8,
+            "source_fragment" : "hdr.potPolka.cml = cml"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["potPolka", "secret"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 5
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 208,
+            "column" : 8,
+            "source_fragment" : "hdr.potPolka.secret = secret"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 5
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 209,
+            "column" : 52,
+            "source_fragment" : "        log_msg(\\\"Initial secret_shares value: {}\\\", {hdr.potPolka.secret});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Initial secret_shares value: {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 209,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Initial secret_shares value: {}\\\", {hdr.potPolka.secret});"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["potPolka", "saved_dst_ip"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 215,
+            "column" : 8,
+            "source_fragment" : "hdr.potPolka.saved_dst_ip = hdr.ipv4.dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : ">>",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "dstAddr"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x18"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 217,
+            "column" : 12,
+            "source_fragment" : "(bit<32>)hdr.potPolka.saved_dst_ip >> 24"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["ipv4", "dstAddr"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x10"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 218,
+            "column" : 12,
+            "source_fragment" : "((bit<32>)hdr.potPolka.saved_dst_ip >> 16) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_2"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["ipv4", "dstAddr"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x8"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 219,
+            "column" : 12,
+            "source_fragment" : "((bit<32>)hdr.potPolka.saved_dst_ip >> 8) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_3"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["ipv4", "dstAddr"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 220,
+            "column" : 12,
+            "source_fragment" : "(bit<32>)hdr.potPolka.saved_dst_ip & 0xFF"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Encapsulating with Dst IP: {}.{}.{}.{}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_0"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_1"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_2"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_3"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 216,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Encapsulating with Dst IP: {}.{}.{}.{}\\\", {"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["potPolka", "saved_src_ip"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 224,
+            "column" : 8,
+            "source_fragment" : "hdr.potPolka.saved_src_ip = hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_4"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : ">>",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "srcAddr"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x18"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 226,
+            "column" : 12,
+            "source_fragment" : "(bit<32>)hdr.potPolka.saved_src_ip >> 24"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_5"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["ipv4", "srcAddr"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x10"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 227,
+            "column" : 12,
+            "source_fragment" : "((bit<32>)hdr.potPolka.saved_src_ip >> 16) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_6"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["ipv4", "srcAddr"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x8"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 228,
+            "column" : 12,
+            "source_fragment" : "((bit<32>)hdr.potPolka.saved_src_ip >> 8) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_7"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["ipv4", "srcAddr"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 229,
+            "column" : 12,
+            "source_fragment" : "(bit<32>)hdr.potPolka.saved_src_ip & 0xFF"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Saved Src IP: {}.{}.{}.{}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_4"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_5"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_6"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_7"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 225,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Saved Src IP: {}.{}.{}.{}\\\", {"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["potPolka", "saved_src_port"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 232,
+            "column" : 8,
+            "source_fragment" : "hdr.potPolka.saved_src_port = hdr.udp.srcPort"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_8"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 233,
+            "column" : 39,
+            "source_fragment" : "        log_msg(\\\"Saved Src Port: {}\\\", {hdr.potPolka.saved_src_port});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Saved Src Port: {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_8"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 233,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Saved Src Port: {}\\\", {hdr.potPolka.saved_src_port});"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["potPolka", "saved_dst_port"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 235,
+            "column" : 8,
+            "source_fragment" : "hdr.potPolka.saved_dst_port = hdr.udp.dstPort"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_9"]
+            },
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 236,
+            "column" : 39,
+            "source_fragment" : "        log_msg(\\\"Saved Dst Port: {}\\\", {hdr.potPolka.saved_dst_port});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Saved Dst Port: {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_9"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 236,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Saved Dst Port: {}\\\", {hdr.potPolka.saved_dst_port});"
+          }
+        },
+        {
+          "op" : "remove_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "ipv4"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 243,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.setInvalid()"
+          }
+        },
+        {
+          "op" : "_jump_if_zero",
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 246,
+            "column" : 8,
+            "source_fragment" : "if"
+          },
+          "parameters" : [
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "d2b",
+                      "left" : null,
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["udp", "$valid$"]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x20"
+            }
+          ]
+        },
+        {
+          "op" : "remove_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "udp"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 247,
+            "column" : 12,
+            "source_fragment" : "hdr.udp.setInvalid()"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Encapsulation: UDP header invalidated."
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 248,
+            "column" : 12,
+            "source_fragment" : "            log_msg(\\\"Encapsulation: UDP header invalidated.\\\");"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1234"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 6,
+            "column" : 32,
+            "source_fragment" : "0x1234; ..."
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Ingress: etherType is changed to TYPE_SRCROUTING"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 252,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Ingress: etherType is changed to TYPE_SRCROUTING\\\");"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_10"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["standard_metadata", "packet_length"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x0000000c"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 255,
+            "column" : 17,
+            "source_fragment" : "(bit<32>)standard_metadata.packet_length + 12"
+          }
+        },
+        {
+          "op" : "truncate",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_10"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 255,
+            "column" : 8,
+            "source_fragment" : "truncate((bit<32>)standard_metadata.packet_length + 12)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_11"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 258,
+            "column" : 13,
+            "source_fragment" : "port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_12"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 3
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 258,
+            "column" : 19,
+            "source_fragment" : "rnd"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_13"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 4
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 258,
+            "column" : 24,
+            "source_fragment" : "cml"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_14"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 258,
+            "column" : 29,
+            "source_fragment" : "dmac"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_15"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 2
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 258,
+            "column" : 35,
+            "source_fragment" : "routeIdPacket"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_16"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 5
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 258,
+            "column" : 50,
+            "source_fragment" : "secret"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "add_sourcerouting_header: port={}, rnd={}, cml={}, dmac={}, routeIdPacket={}, secret={}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_11"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_12"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_13"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_14"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_15"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_16"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 257,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"add_sourcerouting_header: port={}, rnd={}, cml={}, dmac={}, routeIdPacket={}, secret={}\\\","
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge284",
+      "id" : 10,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Ingress: IPV4 is valid"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 284,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Ingress: IPV4 is valid\\\");"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_17"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : ">>",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "dstAddr"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x18"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 287,
+            "column" : 12,
+            "source_fragment" : "(bit<32>)hdr.ipv4.dstAddr >> 24"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_18"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["ipv4", "dstAddr"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x10"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 288,
+            "column" : 12,
+            "source_fragment" : "((bit<32>)hdr.ipv4.dstAddr >> 16) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_19"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["ipv4", "dstAddr"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x8"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 289,
+            "column" : 12,
+            "source_fragment" : "((bit<32>)hdr.ipv4.dstAddr >> 8) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_20"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["ipv4", "dstAddr"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 290,
+            "column" : 12,
+            "source_fragment" : "(bit<32>)hdr.ipv4.dstAddr & 0xFF"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "IPv4 dstAddr = {}.{}.{}.{}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_17"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_18"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_19"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_20"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 286,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"IPv4 dstAddr = {}.{}.{}.{}\\\", {"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge367",
+      "id" : 11,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Ingress: Received IPv4 packet"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 367,
+            "column" : 12,
+            "source_fragment" : "            log_msg(\\\"Ingress: Received IPv4 packet\\\");"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge375",
+      "id" : 12,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_21"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "routeId"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 375,
+            "column" : 68,
+            "source_fragment" : "                log_msg(\\\"Egress: Verifying Path with RouteID: {}\\\", {hdr.potPolka.routeId});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Egress: Verifying Path with RouteID: {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_21"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 375,
+            "column" : 16,
+            "source_fragment" : "                log_msg(\\\"Egress: Verifying Path with RouteID: {}\\\", {hdr.potPolka.routeId});"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge391",
+      "id" : 13,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.secret"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "-",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "+",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "field",
+                                    "value" : ["potPolka", "secret"]
+                                  },
+                                  "right" : {
+                                    "type" : "field",
+                                    "value" : ["scalars", "metadata.mersenne"]
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : ">>",
+                                      "left" : {
+                                        "type" : "field",
+                                        "value" : ["potPolka", "secret"]
+                                      },
+                                      "right" : {
+                                        "type" : "field",
+                                        "value" : ["scalars", "metadata.mersenne_b"]
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0xffff"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata.mersenne"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 391,
+            "column" : 24,
+            "source_fragment" : "meta.secret = meta.secret - meta.mersenne"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_22"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "-",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "+",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "field",
+                                    "value" : ["potPolka", "secret"]
+                                  },
+                                  "right" : {
+                                    "type" : "field",
+                                    "value" : ["scalars", "metadata.mersenne"]
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : ">>",
+                                      "left" : {
+                                        "type" : "field",
+                                        "value" : ["potPolka", "secret"]
+                                      },
+                                      "right" : {
+                                        "type" : "field",
+                                        "value" : ["scalars", "metadata.mersenne_b"]
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0xffff"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata.mersenne"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 392,
+            "column" : 56,
+            "source_fragment" : "                        log_msg(\\\"Adjusted secret: {}\\\", {meta.secret});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Adjusted secret: {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_22"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 392,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"Adjusted secret: {}\\\", {meta.secret});"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge395",
+      "id" : 14,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "No adjustment needed for secret"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 395,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"No adjustment needed for secret\\\");"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge381",
+      "id" : 15,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.rnd"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "rnd"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 381,
+            "column" : 20,
+            "source_fragment" : "meta.rnd = hdr.potPolka.rnd"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.cml"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "cml"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 382,
+            "column" : 20,
+            "source_fragment" : "meta.cml = hdr.potPolka.cml"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_23"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "rnd"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 383,
+            "column" : 73,
+            "source_fragment" : "                    log_msg(\\\"RND = {}, CML without MOD operation = {}\\\", {meta.rnd, meta.cml});"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_24"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "cml"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 383,
+            "column" : 83,
+            "source_fragment" : "                    log_msg(\\\"RND = {}, CML without MOD operation = {}\\\", {meta.rnd, meta.cml});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "RND = {}, CML without MOD operation = {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_23"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_24"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 383,
+            "column" : 20,
+            "source_fragment" : "                    log_msg(\\\"RND = {}, CML without MOD operation = {}\\\", {meta.rnd, meta.cml});"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.secret"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "secret"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 387,
+            "column" : 20,
+            "source_fragment" : "meta.secret = hdr.potPolka.secret"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_25"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "secret"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 388,
+            "column" : 70,
+            "source_fragment" : "                    log_msg(\\\"Final accumulated secret received: {}\\\", {meta.secret});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Final accumulated secret received: {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_25"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 388,
+            "column" : 20,
+            "source_fragment" : "                    log_msg(\\\"Final accumulated secret received: {}\\\", {meta.secret});"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.secret"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["potPolka", "secret"]
+                          },
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.mersenne"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : ">>",
+                              "left" : {
+                                "type" : "field",
+                                "value" : ["potPolka", "secret"]
+                              },
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["scalars", "metadata.mersenne_b"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 389,
+            "column" : 20,
+            "source_fragment" : "meta.secret = (meta.secret & meta.mersenne) + (meta.secret >> meta.mersenne_b)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge411",
+      "id" : 16,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Verification EQUALS CML_POT"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 411,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"Verification EQUALS CML_POT\\\");"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "PoT verification successful"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 412,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"PoT verification successful\\\");"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "ipv4"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 419,
+            "column" : 24,
+            "source_fragment" : "hdr.ipv4.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "version"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x04"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 420,
+            "column" : 24,
+            "source_fragment" : "hdr.ipv4.version = 4"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ihl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x05"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 421,
+            "column" : 24,
+            "source_fragment" : "hdr.ipv4.ihl = 5"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x11"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 422,
+            "column" : 24,
+            "source_fragment" : "hdr.ipv4.protocol = 17"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "totalLen"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0026"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 424,
+            "column" : 24,
+            "source_fragment" : "hdr.ipv4.totalLen = 38"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "hdrChecksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 425,
+            "column" : 24,
+            "source_fragment" : "hdr.ipv4.hdrChecksum = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "saved_dst_ip"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 430,
+            "column" : 24,
+            "source_fragment" : "hdr.ipv4.dstAddr = hdr.potPolka.saved_dst_ip"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_26"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : ">>",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["potPolka", "saved_dst_ip"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x18"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 432,
+            "column" : 28,
+            "source_fragment" : "(bit<32>)hdr.ipv4.dstAddr >> 24"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_27"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["potPolka", "saved_dst_ip"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x10"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 433,
+            "column" : 28,
+            "source_fragment" : "((bit<32>)hdr.ipv4.dstAddr >> 16) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_28"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["potPolka", "saved_dst_ip"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x8"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 434,
+            "column" : 28,
+            "source_fragment" : "((bit<32>)hdr.ipv4.dstAddr >> 8) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_29"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["potPolka", "saved_dst_ip"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 435,
+            "column" : 28,
+            "source_fragment" : "(bit<32>)hdr.ipv4.dstAddr & 0xFF"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Final Restored IPv4 dstAddr = {}.{}.{}.{}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_26"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_27"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_28"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_29"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 431,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"Final Restored IPv4 dstAddr = {}.{}.{}.{}\\\", {"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "saved_src_ip"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 440,
+            "column" : 24,
+            "source_fragment" : "hdr.ipv4.srcAddr = hdr.potPolka.saved_src_ip"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_30"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : ">>",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["potPolka", "saved_src_ip"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x18"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 442,
+            "column" : 28,
+            "source_fragment" : "(bit<32>)hdr.ipv4.srcAddr >> 24"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_31"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["potPolka", "saved_src_ip"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x10"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 443,
+            "column" : 28,
+            "source_fragment" : "((bit<32>)hdr.ipv4.srcAddr >> 16) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_32"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : ">>",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["potPolka", "saved_src_ip"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x8"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xffffffff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 444,
+            "column" : 28,
+            "source_fragment" : "((bit<32>)hdr.ipv4.srcAddr >> 8) & 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_33"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["potPolka", "saved_src_ip"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x000000ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 445,
+            "column" : 28,
+            "source_fragment" : "(bit<32>)hdr.ipv4.srcAddr & 0xFF"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Final Restored IPv4 srcAddr = {}.{}.{}.{}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_30"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_31"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_32"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_33"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 441,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"Final Restored IPv4 srcAddr = {}.{}.{}.{}\\\", {"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "udp"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 453,
+            "column" : 24,
+            "source_fragment" : "hdr.udp.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "length"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0012"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 454,
+            "column" : 24,
+            "source_fragment" : "hdr.udp.length = 18"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "saved_src_port"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 455,
+            "column" : 24,
+            "source_fragment" : "hdr.udp.srcPort = hdr.potPolka.saved_src_port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "saved_dst_port"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 456,
+            "column" : 24,
+            "source_fragment" : "hdr.udp.dstPort = hdr.potPolka.saved_dst_port"
+          }
+        },
+        {
+          "op" : "remove_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "potPolka"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 459,
+            "column" : 24,
+            "source_fragment" : "hdr.potPolka.setInvalid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0800"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 5,
+            "column" : 26,
+            "source_fragment" : "0x800; ..."
+          }
+        },
+        {
+          "op" : "truncate",
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x00000034"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 462,
+            "column" : 24,
+            "source_fragment" : "truncate((bit<32>)hdr.ipv4.totalLen + 14)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge469",
+      "id" : 17,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "PoT verification failed: incorrect RND or CML values"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 469,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"PoT verification failed: incorrect RND or CML values\\\");"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge397",
+      "id" : 18,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_34"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.secret"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 397,
+            "column" : 49,
+            "source_fragment" : "                    log_msg(\\\"last secret = {}\\\", {meta.secret});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "last secret = {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_34"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 397,
+            "column" : 20,
+            "source_fragment" : "                    log_msg(\\\"last secret = {}\\\", {meta.secret});"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.verification"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["potPolka", "rnd"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata.secret"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 401,
+            "column" : 20,
+            "source_fragment" : "meta.verification = (meta.rnd + meta.secret"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.verification"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "+",
+                                  "left" : {
+                                    "type" : "field",
+                                    "value" : ["potPolka", "rnd"]
+                                  },
+                                  "right" : {
+                                    "type" : "field",
+                                    "value" : ["scalars", "metadata.secret"]
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.mersenne"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : ">>",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "+",
+                                      "left" : {
+                                        "type" : "field",
+                                        "value" : ["potPolka", "rnd"]
+                                      },
+                                      "right" : {
+                                        "type" : "field",
+                                        "value" : ["scalars", "metadata.secret"]
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0xffff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["scalars", "metadata.mersenne_b"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 402,
+            "column" : 20,
+            "source_fragment" : "meta.verification = (meta.verification & meta.mersenne) + (meta.verification >> meta.mersenne_b)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_35"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "+",
+                                  "left" : {
+                                    "type" : "field",
+                                    "value" : ["potPolka", "rnd"]
+                                  },
+                                  "right" : {
+                                    "type" : "field",
+                                    "value" : ["scalars", "metadata.secret"]
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.mersenne"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : ">>",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "+",
+                                      "left" : {
+                                        "type" : "field",
+                                        "value" : ["potPolka", "rnd"]
+                                      },
+                                      "right" : {
+                                        "type" : "field",
+                                        "value" : ["scalars", "metadata.secret"]
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0xffff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["scalars", "metadata.mersenne_b"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 403,
+            "column" : 49,
+            "source_fragment" : "                    log_msg(\\\"Verification: {}\\\", {meta.verification});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Verification: {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_35"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 403,
+            "column" : 20,
+            "source_fragment" : "                    log_msg(\\\"Verification: {}\\\", {meta.verification});"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.cml"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["potPolka", "cml"]
+                          },
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.mersenne"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : ">>",
+                              "left" : {
+                                "type" : "field",
+                                "value" : ["potPolka", "cml"]
+                              },
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["scalars", "metadata.mersenne_b"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 405,
+            "column" : 20,
+            "source_fragment" : "meta.cml = (meta.cml & meta.mersenne) + (meta.cml >> meta.mersenne_b)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_36"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["potPolka", "cml"]
+                          },
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.mersenne"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : ">>",
+                              "left" : {
+                                "type" : "field",
+                                "value" : ["potPolka", "cml"]
+                              },
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["scalars", "metadata.mersenne_b"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 406,
+            "column" : 45,
+            "source_fragment" : "                    log_msg(\\\"CML_POT = {}\\\", {meta.cml});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "CML_POT = {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_36"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 406,
+            "column" : 20,
+            "source_fragment" : "                    log_msg(\\\"CML_POT = {}\\\", {meta.cml});"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge477",
+      "id" : 19,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "PoT verification failed: invalid POT_flag flag"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 477,
+            "column" : 20,
+            "source_fragment" : "                    log_msg(\\\"PoT verification failed: invalid POT_flag flag\\\");"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge483",
+      "id" : 20,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Ingress: potPolka header is not valid"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 483,
+            "column" : 16,
+            "source_fragment" : "                log_msg(\\\"Ingress: potPolka header is not valid\\\");"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge373",
+      "id" : 21,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Ingress: Received SRCROUTING packet"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 373,
+            "column" : 12,
+            "source_fragment" : "            log_msg(\\\"Ingress: Received SRCROUTING packet\\\");"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge494",
+      "id" : 22,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0002"
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 494,
+            "column" : 12,
+            "source_fragment" : "standard_metadata.egress_spec = 2"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Bypassing background IPv6 traffic to port 2"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : {
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 495,
+            "column" : 12,
+            "source_fragment" : "            log_msg(\\\"Bypassing background IPv6 traffic to port 2\\\");"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "potpolkaedge511",
+      "id" : 23,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_37"]
+            },
+            {
+              "type" : "field",
+              "value" : ["potPolka", "secret"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 511,
+            "column" : 65,
+            "source_fragment" : "        log_msg(\\\"Secret value before leaving ingress edge: {}\\\", {hdr.potPolka.secret});"
+          }
+        },
+        {
+          "op" : "log_msg",
+          "parameters" : [
+            {
+              "type" : "string",
+              "value" : "Secret value before leaving ingress edge: {}"
+            },
+            {
+              "type" : "parameters_vector",
+              "value" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_37"]
+                }
+              ]
+            }
+          ],
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 511,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Secret value before leaving ingress edge: {}\\\", {hdr.potPolka.secret});"
+          }
+        }
+      ]
+    }
+  ],
+  "pipelines" : [
+    {
+      "name" : "ingress",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "pot-polka-edge.p4",
+        "line" : 305,
+        "column" : 8,
+        "source_fragment" : "MyIngress"
+      },
+      "init_table" : "node_2",
+      "tables" : [
+        {
+          "name" : "tbl_potpolkaedge367",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 367,
+            "column" : 12,
+            "source_fragment" : "            log_msg(\\\"Ingress: Received IPv4 packet\\\");"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [11],
+          "actions" : ["potpolkaedge367"],
+          "base_default_next" : "node_4",
+          "next_tables" : {
+            "potpolkaedge367" : "node_4"
+          },
+          "default_entry" : {
+            "action_id" : 11,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge284",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 284,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Ingress: IPV4 is valid\\\");"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [10],
+          "actions" : ["potpolkaedge284"],
+          "base_default_next" : "MyIngress.process_tunnel_encap.tunnel_encap_process_sr",
+          "next_tables" : {
+            "potpolkaedge284" : "MyIngress.process_tunnel_encap.tunnel_encap_process_sr"
+          },
+          "default_entry" : {
+            "action_id" : 10,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.process_tunnel_encap.tunnel_encap_process_sr",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 265,
+            "column" : 10,
+            "source_fragment" : "tunnel_encap_process_sr"
+          },
+          "key" : [
+            {
+              "match_type" : "lpm",
+              "name" : "hdr.ipv4.dstAddr",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "lpm",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [9, 8],
+          "actions" : ["MyIngress.process_tunnel_encap.add_sourcerouting_header", "MyIngress.process_tunnel_encap.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.process_tunnel_encap.add_sourcerouting_header" : null,
+            "MyIngress.process_tunnel_encap.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 8,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge373",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 373,
+            "column" : 12,
+            "source_fragment" : "            log_msg(\\\"Ingress: Received SRCROUTING packet\\\");"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [21],
+          "actions" : ["potpolkaedge373"],
+          "base_default_next" : "node_9",
+          "next_tables" : {
+            "potpolkaedge373" : "node_9"
+          },
+          "default_entry" : {
+            "action_id" : 21,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge375",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 375,
+            "column" : 16,
+            "source_fragment" : "                log_msg(\\\"Egress: Verifying Path with RouteID: {}\\\", {hdr.potPolka.routeId});"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [12],
+          "actions" : ["potpolkaedge375"],
+          "base_default_next" : "MyIngress.egress_verify",
+          "next_tables" : {
+            "potpolkaedge375" : "MyIngress.egress_verify"
+          },
+          "default_entry" : {
+            "action_id" : 12,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.egress_verify",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 348,
+            "column" : 10,
+            "source_fragment" : "egress_verify"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "hdr.potPolka.routeId",
+              "target" : ["potPolka", "routeId"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [7, 2],
+          "actions" : ["MyIngress.verify_pot", "MyIngress.drop"],
+          "base_default_next" : "node_12",
+          "next_tables" : {
+            "MyIngress.verify_pot" : "node_12",
+            "MyIngress.drop" : "node_12"
+          },
+          "default_entry" : {
+            "action_id" : 2,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge381",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 381,
+            "column" : 29,
+            "source_fragment" : "= hdr.potPolka.rnd; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [15],
+          "actions" : ["potpolkaedge381"],
+          "base_default_next" : "node_14",
+          "next_tables" : {
+            "potpolkaedge381" : "node_14"
+          },
+          "default_entry" : {
+            "action_id" : 15,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge391",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 391,
+            "column" : 36,
+            "source_fragment" : "= meta.secret - meta.mersenne; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [13],
+          "actions" : ["potpolkaedge391"],
+          "base_default_next" : "tbl_potpolkaedge397",
+          "next_tables" : {
+            "potpolkaedge391" : "tbl_potpolkaedge397"
+          },
+          "default_entry" : {
+            "action_id" : 13,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge395",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 395,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"No adjustment needed for secret\\\");"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [14],
+          "actions" : ["potpolkaedge395"],
+          "base_default_next" : "tbl_potpolkaedge397",
+          "next_tables" : {
+            "potpolkaedge395" : "tbl_potpolkaedge397"
+          },
+          "default_entry" : {
+            "action_id" : 14,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge397",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 397,
+            "column" : 20,
+            "source_fragment" : "                    log_msg(\\\"last secret = {}\\\", {meta.secret});"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [18],
+          "actions" : ["potpolkaedge397"],
+          "base_default_next" : "node_18",
+          "next_tables" : {
+            "potpolkaedge397" : "node_18"
+          },
+          "default_entry" : {
+            "action_id" : 18,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge411",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 411,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"Verification EQUALS CML_POT\\\");"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [16],
+          "actions" : ["potpolkaedge411"],
+          "base_default_next" : "MyIngress.ipv4_lpm",
+          "next_tables" : {
+            "potpolkaedge411" : "MyIngress.ipv4_lpm"
+          },
+          "default_entry" : {
+            "action_id" : 16,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.ipv4_lpm",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 323,
+            "column" : 10,
+            "source_fragment" : "ipv4_lpm"
+          },
+          "key" : [
+            {
+              "match_type" : "lpm",
+              "name" : "hdr.ipv4.dstAddr",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "lpm",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [6, 1, 0],
+          "actions" : ["MyIngress.ipv4_forward", "MyIngress.drop", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.ipv4_forward" : null,
+            "MyIngress.drop" : null,
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 1,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge469",
+          "id" : 12,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 469,
+            "column" : 24,
+            "source_fragment" : "                        log_msg(\\\"PoT verification failed: incorrect RND or CML values\\\");"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [17],
+          "actions" : ["potpolkaedge469"],
+          "base_default_next" : "tbl_drop",
+          "next_tables" : {
+            "potpolkaedge469" : "tbl_drop"
+          },
+          "default_entry" : {
+            "action_id" : 17,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_drop",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 470,
+            "column" : 24,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [3],
+          "actions" : ["MyIngress.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 3,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge477",
+          "id" : 14,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 477,
+            "column" : 20,
+            "source_fragment" : "                    log_msg(\\\"PoT verification failed: invalid POT_flag flag\\\");"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [19],
+          "actions" : ["potpolkaedge477"],
+          "base_default_next" : "tbl_drop_0",
+          "next_tables" : {
+            "potpolkaedge477" : "tbl_drop_0"
+          },
+          "default_entry" : {
+            "action_id" : 19,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_drop_0",
+          "id" : 15,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 478,
+            "column" : 20,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [4],
+          "actions" : ["MyIngress.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 4,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge483",
+          "id" : 16,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 483,
+            "column" : 16,
+            "source_fragment" : "                log_msg(\\\"Ingress: potPolka header is not valid\\\");"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [20],
+          "actions" : ["potpolkaedge483"],
+          "base_default_next" : "tbl_drop_1",
+          "next_tables" : {
+            "potpolkaedge483" : "tbl_drop_1"
+          },
+          "default_entry" : {
+            "action_id" : 20,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_drop_1",
+          "id" : 17,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 484,
+            "column" : 16,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [5],
+          "actions" : ["MyIngress.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 5,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_potpolkaedge494",
+          "id" : 18,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 494,
+            "column" : 42,
+            "source_fragment" : "= 2; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [22],
+          "actions" : ["potpolkaedge494"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "potpolkaedge494" : null
+          },
+          "default_entry" : {
+            "action_id" : 22,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_2",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 365,
+            "column" : 12,
+            "source_fragment" : "hdr.ethernet.etherType == TYPE_IPV4"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ethernet", "etherType"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0800"
+              }
+            }
+          },
+          "true_next" : "tbl_potpolkaedge367",
+          "false_next" : "node_7"
+        },
+        {
+          "name" : "node_4",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 283,
+            "column" : 12,
+            "source_fragment" : "hdr.ipv4.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["ipv4", "$valid$"]
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "tbl_potpolkaedge284"
+        },
+        {
+          "name" : "node_7",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 371,
+            "column" : 19,
+            "source_fragment" : "hdr.ethernet.etherType == TYPE_SRCROUTING"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ethernet", "etherType"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x1234"
+              }
+            }
+          },
+          "true_next" : "tbl_potpolkaedge373",
+          "false_next" : "node_27"
+        },
+        {
+          "name" : "node_9",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 374,
+            "column" : 16,
+            "source_fragment" : "hdr.potPolka.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["potPolka", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "tbl_potpolkaedge375",
+          "false_next" : "tbl_potpolkaedge483"
+        },
+        {
+          "name" : "node_12",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 380,
+            "column" : 20,
+            "source_fragment" : "meta.POT_flag == 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata.POT_flag"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : "tbl_potpolkaedge381",
+          "false_next" : "tbl_potpolkaedge477"
+        },
+        {
+          "name" : "node_14",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 390,
+            "column" : 24,
+            "source_fragment" : "meta.secret > meta.mersenne"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["potPolka", "secret"]
+                          },
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.mersenne"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : ">>",
+                              "left" : {
+                                "type" : "field",
+                                "value" : ["potPolka", "secret"]
+                              },
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["scalars", "metadata.mersenne_b"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata.mersenne"]
+              }
+            }
+          },
+          "true_next" : "tbl_potpolkaedge391",
+          "false_next" : "tbl_potpolkaedge395"
+        },
+        {
+          "name" : "node_18",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 409,
+            "column" : 23,
+            "source_fragment" : "meta.verification == meta.cml"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "+",
+                                  "left" : {
+                                    "type" : "field",
+                                    "value" : ["potPolka", "rnd"]
+                                  },
+                                  "right" : {
+                                    "type" : "field",
+                                    "value" : ["scalars", "metadata.secret"]
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffff"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.mersenne"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : ">>",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "+",
+                                      "left" : {
+                                        "type" : "field",
+                                        "value" : ["potPolka", "rnd"]
+                                      },
+                                      "right" : {
+                                        "type" : "field",
+                                        "value" : ["scalars", "metadata.secret"]
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0xffff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["scalars", "metadata.mersenne_b"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["potPolka", "cml"]
+                          },
+                          "right" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.mersenne"]
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : ">>",
+                              "left" : {
+                                "type" : "field",
+                                "value" : ["potPolka", "cml"]
+                              },
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["scalars", "metadata.mersenne_b"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_potpolkaedge411",
+          "false_next" : "tbl_potpolkaedge469"
+        },
+        {
+          "name" : "node_27",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 491,
+            "column" : 17,
+            "source_fragment" : "hdr.ethernet.etherType == TYPE_IPV6"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ethernet", "etherType"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x86dd"
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "tbl_potpolkaedge494"
+        }
+      ]
+    },
+    {
+      "name" : "egress",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "pot-polka-edge.p4",
+        "line" : 509,
+        "column" : 8,
+        "source_fragment" : "MyEgress"
+      },
+      "init_table" : "tbl_potpolkaedge511",
+      "tables" : [
+        {
+          "name" : "tbl_potpolkaedge511",
+          "id" : 19,
+          "source_info" : {
+            "filename" : "pot-polka-edge.p4",
+            "line" : 511,
+            "column" : 8,
+            "source_fragment" : "        log_msg(\\\"Secret value before leaving ingress edge: {}\\\", {hdr.potPolka.secret});"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [23],
+          "actions" : ["potpolkaedge511"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "potpolkaedge511" : null
+          },
+          "default_entry" : {
+            "action_id" : 23,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : []
+    }
+  ],
+  "checksums" : [
+    {
+      "name" : "cksum",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "pot-polka-edge.p4",
+        "line" : 524,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc",
+      "verify" : false,
+      "update" : true,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["ipv4", "$valid$"]
+          }
+        }
+      }
+    },
+    {
+      "name" : "cksum_0",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "pot-polka-edge.p4",
+        "line" : 542,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "target" : ["udp", "checksum"],
+      "type" : "generic",
+      "calculation" : "calc_0",
+      "verify" : false,
+      "update" : true,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["udp", "$valid$"]
+          }
+        }
+      }
+    }
+  ],
+  "force_arith" : [],
+  "extern_instances" : [],
+  "field_aliases" : [
+    [
+      "queueing_metadata.enq_timestamp",
+      ["standard_metadata", "enq_timestamp"]
+    ],
+    [
+      "queueing_metadata.enq_qdepth",
+      ["standard_metadata", "enq_qdepth"]
+    ],
+    [
+      "queueing_metadata.deq_timedelta",
+      ["standard_metadata", "deq_timedelta"]
+    ],
+    [
+      "queueing_metadata.deq_qdepth",
+      ["standard_metadata", "deq_qdepth"]
+    ],
+    [
+      "intrinsic_metadata.ingress_global_timestamp",
+      ["standard_metadata", "ingress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.egress_global_timestamp",
+      ["standard_metadata", "egress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.mcast_grp",
+      ["standard_metadata", "mcast_grp"]
+    ],
+    [
+      "intrinsic_metadata.egress_rid",
+      ["standard_metadata", "egress_rid"]
+    ],
+    [
+      "intrinsic_metadata.priority",
+      ["standard_metadata", "priority"]
+    ]
+  ],
+  "program" : "pot-polka-edge.p4",
+  "__meta__" : {
+    "version" : [2, 23],
+    "compiler" : "https://github.com/p4lang/p4c"
+  }
+}
