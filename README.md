@@ -1,31 +1,26 @@
-PoT-PolKA SDN Architecture
+
+
+# PoT-PolKA SDN Architecture
 
 An implementation of Proof of Transit (PoT) combined with PolKA (Polynomial Key-based Architecture) Source Routing using P4 and P4Runtime. This repository demonstrates secure, verifiable path routing and telemetry on programmable data planes (BMv2).
 
-📋 Table of Contents
+## 📋 Table of Contents
+- [Overview](#-overview)
+- [Repository Structure](#-repository-structure)
+- [Prerequisites & Installation](#-prerequisites--installation)
+- [Running the Experiment](#-running-the-experiment)
+- [Components & Scripts](#-components--scripts)
 
-Overview
-
-Repository Structure
-
-Prerequisites & Installation
-
-Running the Experiment
-
-Components & Scripts
-
-🔍 Overview
+## 🔍 Overview
 
 This project implements an SDN-managed pipeline where:
+- **Edge Switches (e1, e2)** handle encapsulation (`pot-polka-edge.p4`), tunnel creation, and final PoT cryptographic verification.
+- **Core Switches (s1–s4)** process PolKA source routing headers and incrementally compute secret shares (`pot-polka-core.p4`).
+- **The Controller (`controller.py`)** computes polynomial shares via `pot_calculator.py`, configures forwarding tables using P4Runtime, and manages dynamic path consistency.
 
-Edge Switches (e1, e2) handle encapsulation (pot-polka-edge.p4), tunnel creation, and final PoT cryptographic verification.
+## 📁 Repository Structure
 
-Core Switches (s1–s4) process PolKA source routing headers and incrementally compute secret shares (pot-polka-core.p4).
-
-The Controller (controller.py) computes polynomial shares via pot_calculator.py, configures forwarding tables using P4Runtime, and manages dynamic path consistency.
-
-📁 Repository Structure
-
+```text
 ├── pot-polka-edge.p4        # P4 program for edge switches (Encapsulation/Verification)
 ├── pot-polka-core.p4        # P4 program for core switches (PolKA routing & PoT shares)
 ├── controller.py            # Main SDN controller script using P4Runtime
@@ -39,36 +34,17 @@ The Controller (controller.py) computes polynomial shares via pot_calculator.py,
 └── logs/                    # Directory containing switch runtime logs (e.g., e1.log, s2.log, s3.log)
 
 
-🚀 Running the Experiment
-
-To run the experiment, follow these steps across multiple terminal windows:
-
-Initialize the Environment:
-Run the make command in your terminal to compile the P4 programs, spin up the Mininet topology environment, and set up the network.
-
-make
-
-
-Start the SDN Controller:
-Open a separate terminal window and run the controller script to configure table entries via P4Runtime:
-
-python3 controller.py
-
-
-Open Host Terminals in Mininet:
-Inside your Mininet CLI prompt, spawn xterm windows for host h1 and host h2:
-
-xterm h1 h2
-
-
-Send and Receive Traffic:
-
-In the terminal window for h1, start the packet generator:
-
-sudo python3 send_packet.py
-
-
-In the terminal window for h2, start the packet receiver / ACK responder:
-
-sudo python3 receive_packet.py
-
+Architecture Flow During Execution
+[Host h1] 
+     │ (Standard IPv4 Packet)
+     ▼
+ [Edge Switch e1] ──(Encapsulates: Adds PolKA source route & PoT header)
+     │
+     ▼
+ [Core Switches: s1 -> s2 -> s3 -> s4] ──(Processes PolKA routing & accumulates PoT secret shares)
+     │
+     ▼
+ [Edge Switch e2] ──(Verifies Proof of Transit cryptographic path & strips headers)
+     │
+     ▼
+ [Host h2]
